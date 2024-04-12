@@ -5,8 +5,8 @@ type SectionProps = {
 
 export default function Section({ title, content }: SectionProps) {
   return (
-    <section className="p-4 m-4 border-t border-gray-200">
-      <div className="text-xl mb-2 text-white text-center">{title}</div>
+    <section className="p-4 m-4">
+      <div className="text-2xl mb-2 text-white text-center">{title}</div>
       <div className="flex space-x-4 justify-center items-center">
         {content.map((element, index) => (
           <div key={index} className="my-1 text-white">

@@ -1,20 +1,22 @@
-name: Portfolio Workflow
+name: Dev Workflow
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
     branches:
-      - main
-    paths-ignore:
-      - "README.md"
+      - "dev"
+      - "feat/**"
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Dependencies
         run: npm install
       - name: Build
         run: npm run build
-      - name: Deploy
-        run: echo "Deploying..."
